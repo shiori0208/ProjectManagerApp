@@ -9,5 +9,9 @@ we assign this command to "test" (renamed to dev/random) and then run: 'npm run 
 >>to use require keyword use commonjs
 >>to use import use module 
 
+[The git that we make using commands is a local repo - it doesn't appear in github unless we push it]
+
+
+
 
 
