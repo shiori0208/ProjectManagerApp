@@ -1,0 +1,13 @@
+Open terminal >> npm init - to make jason file of project based on your inputs
+
+The "main" key is expecting a page "index.js" 
+We can run this differently by assigning command inside jason file under "scripts"
+Instead of running 'node index.js' on terminal 
+we assign this command to "test" (renamed to dev/random) and then run: 'npm run dev'
+
+"type" in jason gives us 'commonjs' or 'module' option 
+>>to use require keyword use commonjs
+>>to use import use module 
+
+
+

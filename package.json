@@ -1,0 +1,25 @@
+{
+  "name": "project_management",
+  "version": "1.0.0",
+  "description": "An application to help manage building a project from start to finish.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "udemy",
+    "practice",
+    "fullstack",
+    "beginner",
+    "management",
+    "experience",
+    "API creation"
+  ],
+  "author": "Shiori Roy",
+  "license": "ISC",
+  "_comment": "created using the command npm init",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
