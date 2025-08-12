@@ -11,6 +11,13 @@ we assign this command to "test" (renamed to dev/random) and then run: 'npm run 
 
 [The git that we make using commands is a local repo - it doesn't appear in github unless we push it]
 
+app.use >> middleware
+
+DONOT USE DOUBLE QUOTES FOR PACKAGE NAMES, IT TAKES IT AS STRING!!!
+
+AKE SURE TO UPDATE LOCATION OF INDEX FILES IN JASON AND ALSO START SERVER AGAIN OR IT CANT FIND
+
+
 
 
 

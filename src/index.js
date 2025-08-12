@@ -1,14 +1,17 @@
-import dotenv from 'dotenv'; //DONOT USE DOUBLE QUOTES FOR PACKAGE NAMES, IT TAKES IT AS STRING!!!
+import dotenv from 'dotenv'; 
+import app from './app.js'; 
+
+
 
 dotenv.config({
     path: "./.env", //looks for env file in all folders
 });
 
-let myusername = process.env.database;
-//lets you access any data in env files 
 
-console.log("value: ", myusername);
+const port = process.env.PORT || 3000; 
 
-console.log("Starting backend AYYY lessgo");
 
-//MAKE SURE TO UPDATE LOCATION OF INDEX FILES IN JASON AND ALSO START SERVER AGAIN OR IT CANT FIND
+app.listen(port, () => {
+  console.log(`Example app listening on port http://localhost:${port}`); 
+})
+
