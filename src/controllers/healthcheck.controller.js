@@ -5,7 +5,7 @@ const healthCheck = (req,res) => {
     try {
         res
         .status(200)
-        .json(new ApiResponse(200, {message: "Server us running!"}));
+        .json(new ApiResponse(200, {message: "Server is running!"}));
         
     } catch (error) {
         
