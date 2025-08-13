@@ -17,8 +17,13 @@ DONOT USE DOUBLE QUOTES FOR PACKAGE NAMES, IT TAKES IT AS STRING!!!
 
 AKE SURE TO UPDATE LOCATION OF INDEX FILES IN JASON AND ALSO START SERVER AGAIN OR IT CANT FIND
 
+Jason token comprises of header, payload and signature 
 
+NoData token: one time use, verification and stuff 
 
+AccessToken: doesnt get copied into db, only fgoes to client, keeps sending it alongside requests, keeps checking
+
+RefreshToken: kept in db, when AccessToken expires, refresh token sent from client side, matched wuth db, issues new AccessToken when matched
 
 
 
