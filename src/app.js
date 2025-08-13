@@ -30,6 +30,3 @@ app.get("/", (req, res) => {
     res.send("Welcome to Home page!");
 }); 
 
-app.get("/Pinterest", (req, res) => {
-    res.send("Welcome to Pinterest!");
-}); 
