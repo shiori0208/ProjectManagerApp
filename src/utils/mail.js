@@ -53,7 +53,7 @@ const emailVerifyMailContent = (username, verificationURL) => {
                     link: verificationURL
                 },
             },
-        outro: "Facing issues or need assistance? Contact us or reply to this email! We'll get in touch shortly." 
+        outro: "Facing issues or need assistance? Contact us or reply to this email! We'll get in touch shortly..." 
         },
     };
 }
