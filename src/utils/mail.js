@@ -35,7 +35,7 @@ const sendEmail = async (options) => {
     try {
         await transporter.sendMail(mail);
     } catch (error) {
-        console.error("Email service failed. Please make sure you have provided the credentials are correct.");
+        console.error("Email service failed. Please make sure you have provided the credentials are correct!");
         console.error("Error: ", error);
     }
 }
@@ -53,7 +53,7 @@ const emailVerifyMailContent = (username, verificationURL) => {
                     link: verificationURL
                 },
             },
-        outro: "Facing issues or need assistance? Contact us or reply to this email! We'll get in touch shortly." 
+        outro: "Facing issues or need assistance? Contact us or reply to this email! We'll get in touch shortly..." 
         },
     };
 }
