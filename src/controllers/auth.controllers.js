@@ -56,7 +56,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
 
     const createdUser = await User.findById(user._id) //always wrap await in a var
-    .select("-password -refreshToken -emailVerificationToken -emailVerificationExpiry");
+    .select("-password -refreshToken -emailVerificationToken -emailVerificationExpiry"); //remove data with -
 
     if(!createdUser) {
         throw new ApiError(500, "Something went wrong while registering user..."); 
