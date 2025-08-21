@@ -200,6 +200,56 @@ const verifyEmail = asyncHandler (async (req, res) => {
     );
 }); 
 
-//const getCurrentUser = asyncHandler (async (req, res) => {}); 
+const resendEmailVerification = asyncHandler (async (req, res) => {
+    const user = await User.findById(req.user?._id);
 
-export { registerUser, login, logout, getCurrentUser, verifyEmail }; 
+    if(!user){
+        throw new ApiError(404, "User doesnt exist!"); 
+    }
+
+    if(user.isEmailVerified){
+        throw new ApiError(409, "Already verified!"); 
+    }
+
+    const {unhashedToken, hashedToken, tokenExpiry} = user.generateTempToken(); 
+
+    user.emailVerificationToken = hashedToken; 
+    user.emailVerificationExpiry = tokenExpiry;
+
+    await user.save({validateBeforeSave: false});
+
+    await sendEmail(
+        {
+            email: user?.email,
+            subject: "Please verify your email.",
+            mailgenContent: emailVerifyMailContent(
+                user.username, 
+                `${req.protocol}://${req.get("host")}/api/v1/sers/verify-email/${unhashedToken}`
+            ), 
+
+    });
+
+    const createdUser = await User.findById(user._id) //always wrap await in a var
+    .select("-password -refreshToken -emailVerificationToken -emailVerificationExpiry"); //remove data with -
+
+    if(!createdUser) {
+        throw new ApiError(500, "Something went wrong while registering user..."); 
+    }
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            {},
+            "Mail has been resent to your email id"
+        )
+    )
+}); 
+
+export { registerUser, 
+    login, 
+    logout,
+    getCurrentUser, 
+    verifyEmail 
+}; 
