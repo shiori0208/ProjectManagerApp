@@ -162,7 +162,7 @@ const getCurrentUser = asyncHandler (async (req, res) => {
 }); 
 
 const verifyEmail = asyncHandler (async (req, res) => {
-    const {verificationToken} = req.params; 
+    const {verificationToken} = req.params; //new learning getting data from url
 
     if(!verificationToken) {
         throw new ApiError(400, "Email verification token missing!");
@@ -182,12 +182,24 @@ const verifyEmail = asyncHandler (async (req, res) => {
          throw new ApiError(400, "Email verification token is inavlid or expired!");
     }
 
+    user.emailVerificationToken = undefined;
+    user.emailVerificationExpiry = undefined; 
+
     user.isEmailVerified = true; 
     await user.save({validateBeforeSave: false}); 
 
-
+    return res.status(200). 
+    json(
+        new ApiResponse(
+            200,
+            {
+                isEmailVerified: true
+            },
+            "Email is verified!"
+        )
+    );
 }); 
 
 //const getCurrentUser = asyncHandler (async (req, res) => {}); 
 
-export { registerUser, login, logout, getCurrentUser }; 
+export { registerUser, login, logout, getCurrentUser, verifyEmail }; 
