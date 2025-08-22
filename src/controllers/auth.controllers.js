@@ -292,7 +292,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
 
     } catch (error) {
-        
+         throw new ApiError(401, "Inavlid refresh token"); 
     }
 
 })
@@ -302,5 +302,6 @@ export { registerUser,
     logout,
     getCurrentUser, 
     verifyEmail,
-    resendEmailVerification
+    resendEmailVerification,
+    refreshAccessToken
 }; 
