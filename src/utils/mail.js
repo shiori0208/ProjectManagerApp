@@ -64,7 +64,7 @@ const forgetPassEmailContent = (username, forgetPassURL) => {
             name: username,
             intro: "Hey, we received a request for reset password of your account.",
             action: {
-                instructions: "To change password, please click on the following button",
+                instructions: "To change password, please click on the following button: ",
                 button: {
                     color: "#f2bb88",
                     text: "RESET PASSWORD!",
