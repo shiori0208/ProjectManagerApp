@@ -72,7 +72,7 @@ const registerUser = asyncHandler(async (req, res) => {
         new ApiResponse (
             200, 
             {user: createdUser},
-            "User registered successfully. Verification email sent to your email."
+            "User registered successfully. Verification email sent to your email!"
         )
     ); 
 
